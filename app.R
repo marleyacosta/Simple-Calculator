@@ -2,7 +2,8 @@ library(shiny)
 library(plotly)
 library(shinythemes)
 
-# Define UI for application that draws a histogram
+" Define UI for an application that calculates the interest 
+ and loan payment and displays the result in an interactive pie chart."
 ui <- shinyUI(fluidPage(theme = shinytheme('readable'),
                         
                         
