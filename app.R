@@ -40,10 +40,20 @@ server <- shinyServer(function(input, output) {
     paste("You will need to pay $", monthPay(), " every month for ", 
           input$number_of_years, " years to payoff the debt with a total interest of $", interest() )})
   
+  ax <- list(
+    title = "",
+    zeroline = FALSE,
+    showline = FALSE,
+    showticklabels = FALSE,
+    showgrid = FALSE
+  )
+  
+  
   # Display simple Pie Chart
   output$pieChart <- renderPlotly({
     val <- c(input$loan_amount, interest())
-    plot_ly(type="pie",values = val, labels = lb,textinfo="label+value+percent")
+    plot_ly(type="pie",values = val, labels = lb,textinfo="label+value+percent") %>%
+      layout(xaxis = ax, yaxis = ax)
   })
   
 })
